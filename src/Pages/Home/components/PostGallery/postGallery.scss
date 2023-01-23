@@ -1,0 +1,25 @@
+.slider_demo2 {
+  margin-bottom: 8px;
+}
+
+.slider_demo1 {
+  position: relative;
+}
+
+.slider_demo1 {
+  .single_gallary_item {
+    display: block!important;
+  }
+}
+
+.slider_arrow{
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 101%;
+  &:hover{
+    background: linear-gradient(90deg, #FF5555, #AB50EF) !important;
+  }
+}
