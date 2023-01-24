@@ -3,9 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
+import { createSingleNewsSlug } from "../../../Utils/helpers";
+//
 import FontAwesome from "../../../Components/FontAwesome";
 
-const DEFAULT_IMG = 'https://img.freepik.com/free-photo/front-view-woman-holding-heart-shape_23-2148635112.jpg?w=2000&t=st=1674506789~exp=1674507389~hmac=7d2eb1b01b9a9f5623b8eb806f446152af7f813e4e167da5cbfc183abd22034e';
+const DEFAULT_IMG =
+  "https://img.freepik.com/free-photo/front-view-woman-holding-heart-shape_23-2148635112.jpg?w=2000&t=st=1674506789~exp=1674507389~hmac=7d2eb1b01b9a9f5623b8eb806f446152af7f813e4e167da5cbfc183abd22034e";
 
 export default function ScienceNews({ data }) {
   const params = {
@@ -33,7 +36,7 @@ export default function ScienceNews({ data }) {
     },
   };
   return (
-    <div className="science_news border-radious5 mb30 shadow7 padding20">
+    <div className="science_news border-radious5 mb30 shadow7 padding20 mt30">
       <h3 className="widget-title">Health News</h3>
       <div className="science_carousel multipleRowCarousel nav_style4">
         <Swiper navigation={true} modules={[Navigation]} {...params}>
@@ -41,7 +44,12 @@ export default function ScienceNews({ data }) {
             <SwiperSlide key={i} className="single_post mb30 type18 rashed">
               <div className="single_post_text">
                 <h4>
-                  <Link to="/post1">{item.title}</Link>
+                  <Link
+                    to={createSingleNewsSlug(item?.title)}
+                    state={{ data: item }}
+                  >
+                    {item?.title}
+                  </Link>
                 </h4>
                 <div className="space-10" />
               </div>
@@ -50,20 +58,30 @@ export default function ScienceNews({ data }) {
                   <div className="col-sm-4 align-self-center">
                     <div className="border-radious3">
                       <div className="img_wap">
-                        <Link to="/">
+                        <Link
+                          to={createSingleNewsSlug(item?.title)}
+                          state={{ data: item }}
+                        >
                           <img src={item?.image ?? DEFAULT_IMG} alt="thumb" />
                         </Link>
                       </div>
                     </div>
                   </div>
                   <div className="col-sm-8 align-self-center">
-                    <p className="post-p">{item?.description ? item?.description?.substring(0, 100) + "..." : ''}</p>
+                    <p className="post-p">
+                      {item?.description
+                        ? item?.description?.substring(0, 100) + "..."
+                        : ""}
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="book_mark">
                 <h6>
-                  {item?.source} <span>{dayjs(item?.published_at).format("MMMM DD, YYYY")}</span>
+                  {item?.source}{" "}
+                  <span>
+                    {dayjs(item?.published_at).format("MMMM DD, YYYY")}
+                  </span>
                 </h6>
               </div>
             </SwiperSlide>

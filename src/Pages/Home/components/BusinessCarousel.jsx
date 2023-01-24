@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
+import { createSingleNewsSlug } from "../../../Utils/helpers";
+//
 import FontAwesome from "../../../Components/FontAwesome";
 
 const DEFAULT_IMG =
@@ -43,19 +45,27 @@ export default function BusinessCarousel({ data }) {
             <div className="single_international">
               <p className="meta before">{item?.category?.toUpperCase()}</p>
               <h4>
-                <Link to="/">{item?.description?.substring(0, 70) || ""}</Link>
+                <Link
+                  to={createSingleNewsSlug(item?.title)}
+                  state={{ data: item }}
+                >
+                  {item?.title?.substring(0, 70) || ""}
+                </Link>
               </h4>
               <div className="row">
                 <div className="col-8 align-self-center">
                   <p>
                     {item?.description
-                      ? item?.description?.substring(0, 100) + "..."
+                      ? item?.description?.substring(0, 70) + "..."
                       : ""}
                   </p>
                 </div>
                 <div className="col-4 align-self-center">
                   <div className="img_wrap">
-                    <Link to="/">
+                    <Link
+                      to={createSingleNewsSlug(item?.title)}
+                      state={{ data: item }}
+                    >
                       <img src={item?.image || DEFAULT_IMG} alt="thumb" />
                     </Link>
                   </div>
@@ -63,7 +73,10 @@ export default function BusinessCarousel({ data }) {
               </div>
               <ul className="mt20 like_cm">
                 <li>
-                  <Link to="#">
+                  <Link
+                    to={createSingleNewsSlug(item?.title)}
+                    state={{ data: item }}
+                  >
                     <FontAwesome name="calendar" />{" "}
                     {dayjs(item?.published_at).format("MMMM DD, YYYY")}
                   </Link>

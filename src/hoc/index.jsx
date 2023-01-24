@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Outlet, useLocation } from "react-router-dom";
 //
 import { getAllNewsByCategory } from "../Redux/slices/newsSlice";
 //
@@ -10,6 +10,7 @@ import Footer from "../Components/Footer";
 
 export default function Layout() {
   const dispatch = useDispatch();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     [
@@ -24,11 +25,29 @@ export default function Layout() {
       dispatch(getAllNewsByCategory(el));
     });
   }, []);
+
+  const renderOutletWrapper = () => {
+    if (pathname === "/home") {
+      return (
+        <div className="wrapper_welcome">
+          <Header className="home4menu" />
+          <Outlet />
+        </div>
+      );
+    } else {
+      return (
+        <>
+          <Header />
+          <Outlet />
+        </>
+      );
+    }
+  };
+
   return (
     <div className="theme-4">
       <LogoArea />
-      <Header />
-      <Outlet />
+      {renderOutletWrapper()}
       <Footer />
     </div>
   );

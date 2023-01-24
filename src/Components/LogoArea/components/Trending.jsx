@@ -1,10 +1,18 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 //
 import FontAwesome from "../../FontAwesome";
 
 export default function Trending() {
+  const {
+    news: {
+      allNews: { technology },
+      newsPending,
+    },
+  } = useSelector((state) => state);
+
   const params = {
     slidesPerView: 1,
     loop: true,
@@ -23,30 +31,16 @@ export default function Trending() {
               <p className="trand">Tranding</p>
               <div className="nav_style1">
                 <Swiper navigation={true} modules={[Navigation]} {...params}>
-                  <SwiperSlide className="trancarousel_item">
-                    <p>
-                      <Link to="/">
-                        Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                        Now
-                      </Link>
-                    </p>
-                  </SwiperSlide>
-                  <SwiperSlide className="trancarousel_item">
-                    <p>
-                      <Link to="/">
-                        Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                        Now
-                      </Link>
-                    </p>
-                  </SwiperSlide>
-                  <SwiperSlide className="trancarousel_item">
-                    <p>
-                      <Link to="/">
-                        Top 10 Best Movies of 2018 So Far: Great Movies To Watch
-                        Now
-                      </Link>
-                    </p>
-                  </SwiperSlide>
+                  {technology?.data?.map((el, idx) => (
+                    <SwiperSlide
+                      className="trancarousel_item"
+                      key={`head-trending-${idx}`}
+                    >
+                      <p>
+                        <Link to="/">{el?.title}</Link>
+                      </p>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
                 <div className="navBtns">
                   <button className="navBtn prevBtn">

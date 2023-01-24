@@ -2,42 +2,9 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import FontAwesome from "../../../../Components/FontAwesome";
+import { createSingleNewsSlug } from "../../../../Utils/helpers";
 //
-import trend31 from "../../../../doc/img/trending/trend31.jpg";
-import trend32 from "../../../../doc/img/trending/trend32.jpg";
-import trend33 from "../../../../doc/img/trending/trend33.jpg";
-import trend34 from "../../../../doc/img/trending/trend34.jpg";
-import trend35 from "../../../../doc/img/trending/trend35.jpg";
-import trend36 from "../../../../doc/img/trending/trend36.jpg";
-import trend37 from "../../../../doc/img/blog/90652.jpg";
-
-const trendingNews = [
-  {
-    photo: trend32,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-  {
-    photo: trend33,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-  {
-    photo: trend34,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-  {
-    photo: trend35,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-  {
-    photo: trend36,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-  {
-    photo: trend37,
-    title: "Copa America: Luis Suarez from devastated US",
-  },
-];
+import FontAwesome from "../../../../Components/FontAwesome";
 
 const DEFAULT_IMG =
   "https://img.freepik.com/free-photo/closeup-shot-several-newspapers-stacked-top-each-other_181624-16474.jpg?w=1380&t=st=1674498275~exp=1674498875~hmac=1bd34b8db02e9d56cd9ac66da9262aa19b86a48d2e6f31260118c92c3d049deb";
@@ -57,7 +24,10 @@ export default function TrendingNewsThree({ data }) {
           <div className="single_post post_type3 xs-mb90 post_type15">
             <div className="post_img border-radious5">
               <div className="img_wrap">
-                <Link to="/home-three">
+                <Link
+                  to={createSingleNewsSlug(data[0]?.title)}
+                  state={{ data: data[0] }}
+                >
                   <img src={data[0]?.image || DEFAULT_IMG} alt="trend31" />
                 </Link>
               </div>
@@ -69,14 +39,29 @@ export default function TrendingNewsThree({ data }) {
               <div className="row">
                 <div className="col-9 align-self-cnter">
                   <div className="meta3">
-                    <Link to="/">General</Link>
-                    <Link to="/">{dayjs(data[0]?.published_at).format("MMMM DD, YYYY")}</Link>
+                    <Link
+                      to={createSingleNewsSlug(data[0]?.title)}
+                      state={{ data: data[0] }}
+                    >
+                      General
+                    </Link>
+                    <Link
+                      to={createSingleNewsSlug(data[0]?.title)}
+                      state={{ data: data[0] }}
+                    >
+                      {dayjs(data[0]?.published_at).format("MMMM DD, YYYY")}
+                    </Link>
                   </div>
                 </div>
               </div>
               <div className="space-5" />
               <h4>
-                <Link to="/post1">{data[0]?.title}</Link>
+                <Link
+                  to={createSingleNewsSlug(data[0]?.title)}
+                  state={{ data: data[0] }}
+                >
+                  {data[0]?.title}
+                </Link>
               </h4>
               <div className="space-10" />
               <p className="post-p">
@@ -94,22 +79,40 @@ export default function TrendingNewsThree({ data }) {
                 <div className="single_post type10 type16 widgets_small mb15">
                   <div className="post_img">
                     <div className="img_wrap">
-                      <Link to="/">
+                      <Link
+                        to={createSingleNewsSlug(item?.title)}
+                        state={{ data: item }}
+                      >
                         <img src={item?.image || DEFAULT_IMG} alt="thumb" />
                       </Link>
                     </div>
                   </div>
                   <div className="single_post_text">
                     <div className="meta3">
-                      <Link to="/">General</Link>
-                      <Link to="/">{dayjs(item?.published_at).format("MMMM DD, YYYY")}</Link>
+                      <Link
+                        to={createSingleNewsSlug(item?.title)}
+                        state={{ data: item }}
+                      >
+                        General
+                      </Link>
+                      <Link
+                        to={createSingleNewsSlug(item?.title)}
+                        state={{ data: item }}
+                      >
+                        {dayjs(item?.published_at).format("MMMM DD, YYYY")}
+                      </Link>
                     </div>
                     <h4>
-                      <Link to="/">{item?.title || ''}</Link>
+                      <Link
+                        to={createSingleNewsSlug(item?.title)}
+                        state={{ data: item }}
+                      >
+                        {item?.title || ""}
+                      </Link>
                     </h4>
                   </div>
                 </div>
-                {i + 1 < trendingNews.length ? (
+                {i + 1 < data?.slice(1, 10).length ? (
                   <Fragment>
                     <div className="space-5" />
                     <div className="border4" />

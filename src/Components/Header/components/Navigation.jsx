@@ -17,38 +17,38 @@ export default function Navigation() {
     {
       id: 2,
       linkText: "General",
-      link: "/",
+      link: "/categories/general",
     },
     {
       id: 3,
       linkText: "Business",
-      link: "/",
+      link: "/categories/business",
     },
     {
       id: 4,
       linkText: "Entertainment",
-      link: "/",
+      link: "/categories/entertainment",
     },
     {
       id: 5,
       linkText: "Health",
-      link: "/",
+      link: "/categories/health",
     },
     {
       id: 6,
       linkText: "Science",
-      link: "/",
+      link: "/categories/science",
     },
     {
       id: 7,
       linkText: "Sports",
-      link: "/",
+      link: "/categories/sports",
     },
     {
       id: 8,
       linkText: "Technology",
-      link: "/",
-    }
+      link: "/categories/technology",
+    },
   ];
 
   return (

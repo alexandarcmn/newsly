@@ -36,7 +36,7 @@ const newsSlice = createSlice({
     },
     [getAllNewsByCategory.fulfilled]: (state, action) => {
       const { category, data } = action.payload;
-      console.log("-------getAllNewsByCategory", category, data);
+      // console.log("-------getAllNewsByCategory", category, data);
       return {
         ...state,
         allNews: {

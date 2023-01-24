@@ -5,12 +5,12 @@ import FontAwesome from "../FontAwesome";
 import Navigation from "./components/Navigation";
 import SearchModal from "./components/SearchModal";
 
-export default function Header() {
+export default function Header({ className }) {
   const [searchShow, setSearchShow] = useState(false);
 
   return (
     <>
-      <div className="menu4">
+      <div className={`menu4 ${className ? className : ''}`}>
         <div className="container">
           <div className="main-menu">
             <div className="main-nav clearfix is-ts-sticky">

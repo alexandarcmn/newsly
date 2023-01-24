@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import FontAwesome from "../../../Components/FontAwesome";
+import { createSingleNewsSlug } from "../../../Utils/helpers";
 
 const DEFFAULT_IMG =
   "https://img.freepik.com/free-photo/hand-holding-megaphone-protest_23-2148296555.jpg?w=2000&t=st=1674505083~exp=1674505683~hmac=3a3747343f632115949a497c3eeaa64361a0ceafd16375c89962b1f639c0c8f6";
 
 export default function WidgetFinanceTwo({ title, data }) {
   return (
-    <div className="finance mb30 white_bg border-radious5 shadow7 padding20">
+    <div className="finance mb30 white_bg border-radious5 shadow7 padding20 mt30">
       <div className="heading">
         <h3 className="widget-title">{title}</h3>
       </div>
@@ -16,7 +16,10 @@ export default function WidgetFinanceTwo({ title, data }) {
         <div key={i} className="single_post mb30 type18">
           <div className="post_img">
             <div className="img_wrap">
-              <Link to="/">
+              <Link
+                to={createSingleNewsSlug(item?.title)}
+                state={{ data: item }}
+              >
                 <img src={item?.image ?? DEFFAULT_IMG} alt="thumb" />
               </Link>
             </div>
@@ -26,7 +29,12 @@ export default function WidgetFinanceTwo({ title, data }) {
           </div>
           <div className="single_post_text py0">
             <h4>
-              <Link to="/post1">{item?.title}</Link>
+              <Link
+                to={createSingleNewsSlug(item?.title)}
+                state={{ data: item }}
+              >
+                {item?.title}
+              </Link>
             </h4>
             <div className="space-10" />
             <p className="post-p">

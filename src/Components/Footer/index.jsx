@@ -18,7 +18,7 @@ export default function Footer() {
     <div className="footer footer_area3 ">
       <div className="container">
         <div className="row">
-          <div className="col-md-6 col-lg-4">
+          <div className="col-md-6 col-lg-6">
             <div className="single_footer3 mb30">
               <div className="logo">
                 <Link to="/home-three">
@@ -36,31 +36,28 @@ export default function Footer() {
                 harum tempore!
               </p>
             </div>
-            <div className="space-30" />
-            <div className="border_black" />
-            <div className="space-30" />
-            <div className="single_footer_nav mb30">
+            {/* <div className="single_footer_nav mb30">
               <FooterNewsCategories />
-            </div>
+            </div> */}
           </div>
-          <div className="col-md-6 col-lg-8">
-            <div className="space-30" />
-            <div className="border_black" />
-            <div className="space-30" />
+          <div className="col-md-6 col-lg-6">
             <div className="row">
               <div className="col-lg-6">
-                <FooterMoreNewsTwo data={entertainment?.data?.slice(6, 8)} />
-              </div>
-              <div className="col-lg-6">
-                <div className="banner2 mb30 ">
-                  <Link to="/" className="border-radious5">
-                    <img
-                      src="https://preview.colorlib.com/theme/magnews2/images/banner-02.jpg"
-                      alt="banner"
-                    />
-                  </Link>
+                <div className="single_footer_nav mb30">
+                  <FooterNewsCategories />
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="col-12">
+            <div className="banner_area mt30">
+              <Link to="/" style={{ width: '100%' }}>
+                <img
+                  src="https://preview.colorlib.com/theme/magnews2/images/banner-01.jpg"
+                  alt="banner42"
+                  style={{ width: '100%' }}
+                />
+              </Link>
             </div>
           </div>
         </div>

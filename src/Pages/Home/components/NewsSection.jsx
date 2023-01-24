@@ -1,16 +1,18 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import FontAwesome from "../../../Components/FontAwesome";
 import { BiLinkAlt } from "react-icons/bi";
 import dayjs from "dayjs";
 //
+import { createSingleNewsSlug } from "../../../Utils/helpers";
+//
+import FontAwesome from "../../../Components/FontAwesome";
 
 const DEFF_IMAGE =
   "https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg?w=2000&t=st=1674503602~exp=1674504202~hmac=7d7d685f3f9716f64cb265afa280bcd922308dba0e462fc93de455ebbfeb522c";
 
 export default function NewsSection({ data }) {
   return (
-    <div className="v4video primay_bg section-padding2">
+    <div className="v4video primay_bg section-padding2 mt60">
       <div className="container">
         <div className="row">
           <div className="col-12">
@@ -26,7 +28,12 @@ export default function NewsSection({ data }) {
                     }}
                   >
                     <div className="video4_content">
-                      <Link to="/">{data[0]?.title}</Link>
+                      <Link
+                        to={createSingleNewsSlug(data[0]?.title)}
+                        state={{ data: data[0] }}
+                      >
+                        {data[0]?.title}
+                      </Link>
                       <div className="video4_video">
                         <div className="video4_icon">
                           <BiLinkAlt
@@ -60,7 +67,12 @@ export default function NewsSection({ data }) {
                             </h6>
                           </div>
                           <h4>
-                            <Link to="/">{item?.title}</Link>
+                            <Link
+                              to={createSingleNewsSlug(item?.title)}
+                              state={{ data: item }}
+                            >
+                              {item?.title}
+                            </Link>
                           </h4>
                         </div>
                         {i + 1 < data?.slice(1)?.length ? (
