@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 
 const DEFFAULT_IMG =
   "https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg?w=2000&t=st=1674503602~exp=1674504202~hmac=7d7d685f3f9716f64cb265afa280bcd922308dba0e462fc93de455ebbfeb522c";
@@ -26,6 +26,7 @@ export default function InternationalNews({ data }) {
               <Link
                 to={createSingleNewsSlug(item?.title)}
                 state={{ data: item }}
+                onClick={() => handleSingleNewsData(item)}
               >
                 <img src={item?.image ?? DEFFAULT_IMG} alt="thumb" />
               </Link>
@@ -38,12 +39,14 @@ export default function InternationalNews({ data }) {
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {item?.category?.toUpperCase()}
                   </Link>
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {dayjs(item?.published_at).format("MMMM DD, YYYY")}
                   </Link>
@@ -55,6 +58,7 @@ export default function InternationalNews({ data }) {
               <Link
                 to={createSingleNewsSlug(item?.title)}
                 state={{ data: item }}
+                onClick={() => handleSingleNewsData(item)}
               >
                 {item?.title}
               </Link>
@@ -70,6 +74,7 @@ export default function InternationalNews({ data }) {
               to={createSingleNewsSlug(item?.title)}
               state={{ data: item }}
               className="readmore4"
+              onClick={() => handleSingleNewsData(item)}
             >
               Read more
             </Link>

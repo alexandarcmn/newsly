@@ -27,3 +27,7 @@ export const openInNewTab = (url) => {
     window.open('https://www.google.com', "_blank", "noopener,noreferrer");
   }
 }
+
+export const handleSingleNewsData = (data) => {
+  localStorage.setItem("singleNewsData", JSON.stringify(data));
+};

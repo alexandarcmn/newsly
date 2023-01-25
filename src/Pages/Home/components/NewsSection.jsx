@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BiLinkAlt } from "react-icons/bi";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
 
@@ -31,6 +31,7 @@ export default function NewsSection({ data }) {
                       <Link
                         to={createSingleNewsSlug(data[0]?.title)}
                         state={{ data: data[0] }}
+                        onClick={() => handleSingleNewsData(data[0])}
                       >
                         {data[0]?.title}
                       </Link>
@@ -70,6 +71,7 @@ export default function NewsSection({ data }) {
                             <Link
                               to={createSingleNewsSlug(item?.title)}
                               state={{ data: item }}
+                              onClick={() => handleSingleNewsData(item)}
                             >
                               {item?.title}
                             </Link>

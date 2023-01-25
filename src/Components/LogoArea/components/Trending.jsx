@@ -28,7 +28,7 @@ export default function Trending() {
         <div className="row">
           <div className="col-md-12 align-self-center">
             <div className="trancarousel_area">
-              <p className="trand">Tranding</p>
+              <p className="trand">Tech Trending</p>
               <div className="nav_style1">
                 <Swiper navigation={true} modules={[Navigation]} {...params}>
                   {technology?.data?.map((el, idx) => (

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
 
@@ -48,6 +48,7 @@ export default function BusinessCarousel({ data }) {
                 <Link
                   to={createSingleNewsSlug(item?.title)}
                   state={{ data: item }}
+                  onClick={() => handleSingleNewsData(item)}
                 >
                   {item?.title?.substring(0, 70) || ""}
                 </Link>
@@ -65,6 +66,7 @@ export default function BusinessCarousel({ data }) {
                     <Link
                       to={createSingleNewsSlug(item?.title)}
                       state={{ data: item }}
+                      onClick={() => handleSingleNewsData(item)}
                     >
                       <img src={item?.image || DEFAULT_IMG} alt="thumb" />
                     </Link>
@@ -76,6 +78,7 @@ export default function BusinessCarousel({ data }) {
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     <FontAwesome name="calendar" />{" "}
                     {dayjs(item?.published_at).format("MMMM DD, YYYY")}

@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
 
@@ -47,6 +47,7 @@ export default function ScienceNews({ data }) {
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {item?.title}
                   </Link>
@@ -61,6 +62,7 @@ export default function ScienceNews({ data }) {
                         <Link
                           to={createSingleNewsSlug(item?.title)}
                           state={{ data: item }}
+                          onClick={() => handleSingleNewsData(item)}
                         >
                           <img src={item?.image ?? DEFAULT_IMG} alt="thumb" />
                         </Link>

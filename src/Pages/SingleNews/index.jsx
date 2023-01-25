@@ -16,9 +16,8 @@ const DEFF_AVATAR_IMG =
 
 export default function SingleNews() {
   const { state } = useLocation();
-  const singleNews = state?.data;
-
-  console.log("state", state?.data);
+  const singleNews =
+    state?.data || JSON.parse(localStorage.getItem("singleNewsData"));
 
   return (
     <>
@@ -74,12 +73,14 @@ export default function SingleNews() {
               <div className="space-40" />
               <div className="tags">
                 <ul className="inline">
-                  <li className="tag_list">
-                    <FontAwesome name="tag" /> {singleNews?.source}
-                  </li>
+                  <li className="tag_list">Source: {singleNews?.source}</li>
                 </ul>
               </div>
-              <Link to="#" onClick={() => openInNewTab(singleNews?.url)} className="showmore">
+              <Link
+                to="#"
+                onClick={() => openInNewTab(singleNews?.url)}
+                className="showmore"
+              >
                 Show more
               </Link>
             </div>

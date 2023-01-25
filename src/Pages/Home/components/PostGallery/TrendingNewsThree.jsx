@@ -2,7 +2,10 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../../Utils/helpers";
+import {
+  createSingleNewsSlug,
+  handleSingleNewsData,
+} from "../../../../Utils/helpers";
 //
 import FontAwesome from "../../../../Components/FontAwesome";
 
@@ -27,6 +30,7 @@ export default function TrendingNewsThree({ data }) {
                 <Link
                   to={createSingleNewsSlug(data[0]?.title)}
                   state={{ data: data[0] }}
+                  onClick={() => handleSingleNewsData(data[0])}
                 >
                   <img src={data[0]?.image || DEFAULT_IMG} alt="trend31" />
                 </Link>
@@ -42,12 +46,14 @@ export default function TrendingNewsThree({ data }) {
                     <Link
                       to={createSingleNewsSlug(data[0]?.title)}
                       state={{ data: data[0] }}
+                      onClick={() => handleSingleNewsData(data[0])}
                     >
                       General
                     </Link>
                     <Link
                       to={createSingleNewsSlug(data[0]?.title)}
                       state={{ data: data[0] }}
+                      onClick={() => handleSingleNewsData(data[0])}
                     >
                       {dayjs(data[0]?.published_at).format("MMMM DD, YYYY")}
                     </Link>
@@ -59,6 +65,7 @@ export default function TrendingNewsThree({ data }) {
                 <Link
                   to={createSingleNewsSlug(data[0]?.title)}
                   state={{ data: data[0] }}
+                  onClick={() => handleSingleNewsData(data[0])}
                 >
                   {data[0]?.title}
                 </Link>
@@ -82,6 +89,7 @@ export default function TrendingNewsThree({ data }) {
                       <Link
                         to={createSingleNewsSlug(item?.title)}
                         state={{ data: item }}
+                        onClick={() => handleSingleNewsData(item)}
                       >
                         <img src={item?.image || DEFAULT_IMG} alt="thumb" />
                       </Link>
@@ -92,12 +100,14 @@ export default function TrendingNewsThree({ data }) {
                       <Link
                         to={createSingleNewsSlug(item?.title)}
                         state={{ data: item }}
+                        onClick={() => handleSingleNewsData(item)}
                       >
                         General
                       </Link>
                       <Link
                         to={createSingleNewsSlug(item?.title)}
                         state={{ data: item }}
+                        onClick={() => handleSingleNewsData(item)}
                       >
                         {dayjs(item?.published_at).format("MMMM DD, YYYY")}
                       </Link>
@@ -106,6 +116,7 @@ export default function TrendingNewsThree({ data }) {
                       <Link
                         to={createSingleNewsSlug(item?.title)}
                         state={{ data: item }}
+                        onClick={() => handleSingleNewsData(item)}
                       >
                         {item?.title || ""}
                       </Link>

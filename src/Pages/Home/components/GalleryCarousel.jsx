@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 
 const DEFF_IMAGE =
   "https://img.freepik.com/free-photo/closeup-shot-several-newspapers-stacked-top-each-other_181624-16474.jpg?w=1380&t=st=1674498275~exp=1674498875~hmac=1bd34b8db02e9d56cd9ac66da9262aa19b86a48d2e6f31260118c92c3d049deb";
@@ -31,6 +31,7 @@ export default function GalleryCarousel({ data }) {
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     <img src={item?.image ?? DEFF_IMAGE} alt="thumb" />
                   </Link>
@@ -48,6 +49,7 @@ export default function GalleryCarousel({ data }) {
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {item?.title}
                   </Link>

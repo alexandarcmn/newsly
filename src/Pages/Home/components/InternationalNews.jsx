@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug } from "../../../Utils/helpers";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 
 const DEFF_IMAGE =
   "https://img.freepik.com/free-photo/hand-holding-megaphone-protest_23-2148296555.jpg?w=2000&t=st=1674505083~exp=1674505683~hmac=3a3747343f632115949a497c3eeaa64361a0ceafd16375c89962b1f639c0c8f6";
@@ -31,6 +31,7 @@ export default function InternationalNews({
               <Link
                 to={createSingleNewsSlug(item?.title)}
                 state={{ data: item }}
+                onClick={() => handleSingleNewsData(item)}
               >
                 <img src={item?.image ?? DEFF_IMAGE} alt="thumb" />
               </Link>
@@ -43,12 +44,14 @@ export default function InternationalNews({
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {item?.category?.toUpperCase()}
                   </Link>
                   <Link
                     to={createSingleNewsSlug(item?.title)}
                     state={{ data: item }}
+                    onClick={() => handleSingleNewsData(item)}
                   >
                     {dayjs(item?.published_at).format("MMMM DD, YYYY")}
                   </Link>
@@ -59,6 +62,7 @@ export default function InternationalNews({
               <Link
                 to={createSingleNewsSlug(item?.title)}
                 state={{ data: item }}
+                onClick={() => handleSingleNewsData(item)}
               >
                 {item?.title}
               </Link>
@@ -74,6 +78,7 @@ export default function InternationalNews({
               to={createSingleNewsSlug(item?.title)}
               state={{ data: item }}
               className="readmore4"
+              onClick={() => handleSingleNewsData(item)}
             >
               Read more
             </Link>
