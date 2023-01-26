@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import NewsLogo from '../../../doc/img/logo/logo1.png'
 
 export default function Logo() {
   return (
     <div className="logo4">
       <Link to="/home">
         <img
-          src="https://preview.colorlib.com/theme/magnews2/images/icons/logo-01.png"
+          src={NewsLogo}
           alt="logo"
         />
       </Link>

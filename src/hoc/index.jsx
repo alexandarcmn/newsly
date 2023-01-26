@@ -7,6 +7,7 @@ import { getAllNewsByCategory } from "../Redux/slices/newsSlice";
 import LogoArea from "../Components/LogoArea";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import ScrollToTop from "../Components/ScrollToTop";
 
 export default function Layout() {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ export default function Layout() {
       <LogoArea />
       {renderOutletWrapper()}
       <Footer />
+      <ScrollToTop/>
     </div>
   );
 }

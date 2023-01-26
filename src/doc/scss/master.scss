@@ -219,7 +219,7 @@ body {
   width: 50px;
   text-align: center;
   line-height: 70px;
-  background: #FF5555;
+  background: $gradient41;
   color: #fff;
   border-radius: 50px;
   position: fixed;
@@ -229,6 +229,7 @@ body {
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
+  font-size: 30px;
   @include transition(all .3s);
 }
 
@@ -333,7 +334,7 @@ body {
   height: 100%;
   width: 100%;
   background: rgba(23, 34, 43, 0.9);
-  z-index: 999;
+  z-index: 999999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -438,7 +439,7 @@ body {
   font-weight: $wightMedium;
   text-transform: capitalize;
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: inline-block;
   &::before {
     position: absolute;

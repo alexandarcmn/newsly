@@ -86,7 +86,7 @@ export default function InternationalNews({
         </div>
       ))}
       {showMore ? (
-        <Link to="/" className="showmore">
+        <Link to="/categories/entertainment" className="showmore">
           Show more
         </Link>
       ) : null}

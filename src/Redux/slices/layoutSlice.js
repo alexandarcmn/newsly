@@ -3,33 +3,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 export const layoutSlice = createSlice({
   name: "layout",
   initialState: {
-    modal: {
-      type: "",
-      isOpen: false,
-      loading: false,
-    },
-    sidebarOpened: false,
-    form: null,
+    searchOpened: false,
   },
   reducers: {
-    openModal: (state, action) => {
+    searchModalHandler: (state, action) => {
       return {
-        modal: {
-          type: action.payload.type,
-          isOpen: true,
-        },
-      };
-    },
-    closeModal: (state, action) => {
-      return {
-        modal: {
-          type: "",
-          isOpen: false,
-        },
+        ...state,
+        searchOpened: !state.searchOpened,
       };
     },
   },
 });
 
-export const { openModal, closeModal } = layoutSlice.actions;
+export const { searchModalHandler } = layoutSlice.actions;
 export default layoutSlice.reducer;
