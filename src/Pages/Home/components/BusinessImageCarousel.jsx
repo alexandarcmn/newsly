@@ -4,14 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
-
-const BUSINESS_DEFFAULT_IMG =
-  "https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg?w=2000&t=st=1674503602~exp=1674504202~hmac=7d7d685f3f9716f64cb265afa280bcd922308dba0e462fc93de455ebbfeb522c";
-const TECH_DEFFAULT_IMG =
-  "https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-100679.jpg?w=1380&t=st=1674500633~exp=1674501233~hmac=9fa196c998ad99d97951a6da437daa6a7ae1b508cc649aa41633e6c9aef17400";
 
 export default function BusinessImageCarousel({ dataOne, dataTwo }) {
   const params = {
@@ -40,7 +35,7 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
                       onClick={() => handleSingleNewsData(item)}
                     >
                       <img
-                        src={item?.image ?? BUSINESS_DEFFAULT_IMG}
+                        src={item?.image ?? gentRandomImageByCategory(item?.category)}
                         alt="thumb"
                       />
                     </Link>
@@ -90,7 +85,7 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
                       to={createSingleNewsSlug(item?.title)}
                       state={{ data: item }}
                     >
-                      <img src={item?.image ?? TECH_DEFFAULT_IMG} alt="thumb" />
+                      <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
                     </Link>
                   </div>
                 </div>

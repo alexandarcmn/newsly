@@ -4,13 +4,11 @@ import dayjs from "dayjs";
 //
 import {
   createSingleNewsSlug,
+  gentRandomImageByCategory,
   handleSingleNewsData,
-} from "../../../../Utils/helpers";
+} from "../../../Utils/helpers";
 //
-import FontAwesome from "../../../../Components/FontAwesome";
-
-const DEFAULT_IMG =
-  "https://img.freepik.com/free-photo/closeup-shot-several-newspapers-stacked-top-each-other_181624-16474.jpg?w=1380&t=st=1674498275~exp=1674498875~hmac=1bd34b8db02e9d56cd9ac66da9262aa19b86a48d2e6f31260118c92c3d049deb";
+import FontAwesome from "../../../Components/FontAwesome";
 
 export default function TrendingNewsThree({ data }) {
   return (
@@ -32,7 +30,7 @@ export default function TrendingNewsThree({ data }) {
                   state={{ data: data[0] }}
                   onClick={() => handleSingleNewsData(data[0])}
                 >
-                  <img src={data[0]?.image || DEFAULT_IMG} alt="trend31" />
+                  <img src={data[0]?.image || gentRandomImageByCategory(data[0]?.category)} alt="trend31" />
                 </Link>
               </div>
               <span className="tranding border_tranding">
@@ -91,7 +89,7 @@ export default function TrendingNewsThree({ data }) {
                         state={{ data: item }}
                         onClick={() => handleSingleNewsData(item)}
                       >
-                        <img src={item?.image || DEFAULT_IMG} alt="thumb" />
+                        <img src={item?.image || gentRandomImageByCategory(item?.category)} alt="thumb" />
                       </Link>
                     </div>
                   </div>

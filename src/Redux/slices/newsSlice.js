@@ -4,10 +4,10 @@ import NewsService, { business, entertainment, general, health, science, sports,
 export const getAllNewsByCategory = createAsyncThunk(
   "news/all",
   async (category) => {
-    // const res = await NewsService.getAll(category);
+    const res = await NewsService.getAll(category);
     return {
       category,
-      data: null,
+      data: res.data,
     };
   }
 );
@@ -36,11 +36,15 @@ const newsSlice = createSlice({
     },
     [getAllNewsByCategory.fulfilled]: (state, action) => {
       const { category, data } = action.payload;
-      // console.log("-------getAllNewsByCategory", category, data);
+      console.log("-------getAllNewsByCategory", category, data);
       return {
         ...state,
         allNews: {
           ...state.allNews,
+          [category]: {
+            ...data,
+            data: data?.data?.reverse(),
+          },
         },
         newsPending: false,
       };

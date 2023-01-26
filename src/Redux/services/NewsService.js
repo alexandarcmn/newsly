@@ -9866,12 +9866,7 @@ export const technology = {
 
 const getAll = (category) => {
   return axios.get(
-    `https://api.mediastack.com/v1/news?
-        access_key=ef55b04ff5ebf918007353428dfda7c2
-        &limit=100
-        &date=${last30Days},${dayjs().format("YYYY-MM-DD")}
-        &languages=en
-        &categories=${category}`
+    `https://api.mediastack.com/v1/news?access_key=ef55b04ff5ebf918007353428dfda7c2&date=${last30Days},${dayjs().format("YYYY-MM-DD")}&languages=en&limit=100&categories=${category}`
   );
 };
 

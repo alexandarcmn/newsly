@@ -2,10 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
-
-const DEFFAULT_IMG =
-  "https://img.freepik.com/free-photo/group-diverse-people-having-business-meeting_53876-25060.jpg?w=2000&t=st=1674503602~exp=1674504202~hmac=7d7d685f3f9716f64cb265afa280bcd922308dba0e462fc93de455ebbfeb522c";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
 
 export default function InternationalNews({ data }) {
   const [sliceIndex, setSliceIndex] = useState(6);
@@ -28,7 +25,7 @@ export default function InternationalNews({ data }) {
                 state={{ data: item }}
                 onClick={() => handleSingleNewsData(item)}
               >
-                <img src={item?.image ?? DEFFAULT_IMG} alt="thumb" />
+                <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
               </Link>
             </div>
           </div>

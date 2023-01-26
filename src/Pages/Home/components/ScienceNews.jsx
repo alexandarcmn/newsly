@@ -3,12 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
+import {
+  createSingleNewsSlug,
+  gentRandomImageByCategory,
+  handleSingleNewsData,
+} from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
-
-const DEFAULT_IMG =
-  "https://img.freepik.com/free-photo/front-view-woman-holding-heart-shape_23-2148635112.jpg?w=2000&t=st=1674506789~exp=1674507389~hmac=7d2eb1b01b9a9f5623b8eb806f446152af7f813e4e167da5cbfc183abd22034e";
 
 export default function ScienceNews({ data }) {
   const params = {
@@ -64,7 +65,13 @@ export default function ScienceNews({ data }) {
                           state={{ data: item }}
                           onClick={() => handleSingleNewsData(item)}
                         >
-                          <img src={item?.image ?? DEFAULT_IMG} alt="thumb" />
+                          <img
+                            src={
+                              item?.image ??
+                              gentRandomImageByCategory(item?.category)
+                            }
+                            alt="thumb"
+                          />
                         </Link>
                       </div>
                     </div>

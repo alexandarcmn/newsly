@@ -2,14 +2,8 @@ import { Link, useParams, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 //
-import FontAwesome from "../../Components/FontAwesome";
-//
-import WidgetFinanceTwo from "../Home/components/WidgetFinanceTwo";
 import CategoryFour from "../Home/components/CategoryFour";
-import { openInNewTab } from "../../Utils/helpers";
-
-const DEFAULT_IMG =
-  "https://img.freepik.com/free-photo/closeup-shot-several-newspapers-stacked-top-each-other_181624-16474.jpg?w=1380&t=st=1674498275~exp=1674498875~hmac=1bd34b8db02e9d56cd9ac66da9262aa19b86a48d2e6f31260118c92c3d049deb";
+import { gentRandomImageByCategory, openInNewTab } from "../../Utils/helpers";
 
 const DEFF_AVATAR_IMG =
   "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=826&t=st=1674595570~exp=1674596170~hmac=bd693938e7fff743537dfbf83e7292347863f08bca923731d5621adee605b6c6";
@@ -44,7 +38,13 @@ export default function SingleNews() {
               </div>
               <div className="space-40" />
               <div className="border-radious5">
-                <img src={singleNews?.image ?? DEFAULT_IMG} alt="thumb" />
+                <img
+                  src={
+                    singleNews?.image ??
+                    gentRandomImageByCategory(singleNews?.category)
+                  }
+                  alt="thumb"
+                />
               </div>
               <div className="space-20" />
               <div className="row">

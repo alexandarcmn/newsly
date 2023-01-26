@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BiLinkAlt } from "react-icons/bi";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
 
@@ -23,7 +23,7 @@ export default function NewsSection({ data }) {
                     className="tatal_video4"
                     style={{
                       background: `url(${
-                        data[0]?.image ?? DEFF_IMAGE
+                        data[0]?.image ?? gentRandomImageByCategory(data[0]?.category)
                       }) center/cover no-repeat`,
                     }}
                   >

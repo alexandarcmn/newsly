@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
-
-const DEFFAULT_IMG =
-  "https://img.freepik.com/free-photo/hand-holding-megaphone-protest_23-2148296555.jpg?w=2000&t=st=1674505083~exp=1674505683~hmac=3a3747343f632115949a497c3eeaa64361a0ceafd16375c89962b1f639c0c8f6";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
 
 export default function WidgetFinanceTwo({ title, data }) {
   return (
@@ -21,7 +18,7 @@ export default function WidgetFinanceTwo({ title, data }) {
                 state={{ data: item }}
                 onClick={() => handleSingleNewsData(item)}
               >
-                <img src={item?.image ?? DEFFAULT_IMG} alt="thumb" />
+                <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
               </Link>
             </div>
             <span className="batch3 date">

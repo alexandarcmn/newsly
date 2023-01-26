@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import dayjs from "dayjs";
-//
-const DEFAULT_IMG =
-  "https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-100679.jpg?w=1380&t=st=1674500633~exp=1674501233~hmac=9fa196c998ad99d97951a6da437daa6a7ae1b508cc649aa41633e6c9aef17400";
+import { gentRandomImageByCategory } from "../../../Utils/helpers";
 
 export default function HeroArea({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -33,7 +31,7 @@ export default function HeroArea({ data }) {
               className="welcome4_area_wrap wlc_overlay"
               style={{
                 background: `url(${
-                  item?.image ?? DEFAULT_IMG
+                  item?.image ?? gentRandomImageByCategory(item?.category)
                 }) center/cover no-repeat`,
               }}
             >

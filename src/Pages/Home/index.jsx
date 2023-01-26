@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 //
-import PostCarousel from "./components/PostCarousel";
-import PostGallery from "./components/PostGallery";
-import TrendingNewsThree from "./components/PostGallery/TrendingNewsThree";
+import TrendingNewsThree from "./components/TrendingNewsThree";
 import BusinessCarousel from "./components/BusinessCarousel";
 import BusinessImageCarousel from "./components/BusinessImageCarousel";
 import WidgetFinanceTwo from "./components/WidgetFinanceTwo";
@@ -34,8 +32,6 @@ export default function Home() {
 
   return (
     <>
-      {/* <PostCarousel className="fifth_bg" /> */}
-      {/* <PostGallery className="fifth_bg" data={general?.data?.slice(0, 10)} /> */}
       <div className="bg4">
         <HeroArea data={general?.data?.slice(0, 4)} />
         <div className="space-60" />

@@ -3,12 +3,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
-
-const DEFAULT_IMG =
-  "https://img.freepik.com/free-vector/blue-futuristic-networking-technology_53876-100679.jpg?w=1380&t=st=1674500633~exp=1674501233~hmac=9fa196c998ad99d97951a6da437daa6a7ae1b508cc649aa41633e6c9aef17400";
 
 export default function BusinessCarousel({ data }) {
   const params = {
@@ -68,7 +65,7 @@ export default function BusinessCarousel({ data }) {
                       state={{ data: item }}
                       onClick={() => handleSingleNewsData(item)}
                     >
-                      <img src={item?.image || DEFAULT_IMG} alt="thumb" />
+                      <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
                     </Link>
                   </div>
                 </div>
