@@ -78,7 +78,7 @@ export default function SingleNews() {
               </div>
               <Link
                 to="#"
-                onClick={() => openInNewTab(singleNews?.url)}
+                onClick={() => openInNewTab(singleNews?.url, true)}
                 className="showmore"
               >
                 Show more

@@ -104,11 +104,11 @@ export const createSingleNewsSlug = (title) => {
   return `/news/${title?.toLocaleLowerCase().replace(/[^A-Z0-9]/gi, "_")}`;
 };
 
-export const openInNewTab = (url) => {
+export const openInNewTab = (url, opensAdditional) => {
   if (typeof window !== "undefined") {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
     if (newWindow) newWindow.opener = null;
-    window.open("https://www.google.com", "_blank", "noopener,noreferrer");
+    if (opensAdditional) window.open("https://www.google.com", "_blank", "noopener,noreferrer");
   }
 };
 

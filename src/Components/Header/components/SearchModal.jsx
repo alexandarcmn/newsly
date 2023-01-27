@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { GrClose } from "react-icons/gr";
+import { openInNewTab } from "../../../Utils/helpers";
 
 const SearchModal = ({ searchShow, setSearchShow }) => {
   const [search, setSearch] = useState("");
-
+  
   const submitHandler = (e) => {
     e.preventDefault();
+    openInNewTab(`https://srch.adsearchexperts.com/f?cid=4969&q=${search}`, false);
     setSearch("");
   };
 
@@ -15,7 +17,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
         <div className="row">
           <div className="col-sm-12 col-md-8 text-center m-auto">
             <div className="v1search_form">
-              <form method="GET" action={`https://srch.adsearchexperts.com/f?cid=4969&q=${search}`}>
+              <form onSubmit={submitHandler} method="GET">
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
