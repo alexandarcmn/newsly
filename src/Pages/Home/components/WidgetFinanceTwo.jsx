@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
+import {
+  createSingleNewsSlug,
+  gentRandomImageByCategory,
+  handleSingleNewsData,
+  openInNewTab,
+} from "../../../Utils/helpers";
 
 export default function WidgetFinanceTwo({ title, data }) {
   return (
@@ -18,7 +23,10 @@ export default function WidgetFinanceTwo({ title, data }) {
                 state={{ data: item }}
                 onClick={() => handleSingleNewsData(item)}
               >
-                <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
+                <img
+                  src={item?.image ?? gentRandomImageByCategory(item?.category)}
+                  alt="thumb"
+                />
               </Link>
             </div>
             <span className="batch3 date">
@@ -44,6 +52,15 @@ export default function WidgetFinanceTwo({ title, data }) {
           </div>
         </div>
       ))}
+      <Link
+        to="#"
+        onClick={() =>
+          openInNewTab(`/categories/${data[0]?.category}`, true)
+        }
+        className="showmore"
+      >
+        Show more
+      </Link>
     </div>
   );
 }

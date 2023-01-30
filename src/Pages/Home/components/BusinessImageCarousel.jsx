@@ -4,7 +4,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import dayjs from "dayjs";
 //
-import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
+import {
+  createSingleNewsSlug,
+  gentRandomImageByCategory,
+  handleSingleNewsData,
+  openInNewTab,
+} from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
 
@@ -35,7 +40,10 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
                       onClick={() => handleSingleNewsData(item)}
                     >
                       <img
-                        src={item?.image ?? gentRandomImageByCategory(item?.category)}
+                        src={
+                          item?.image ??
+                          gentRandomImageByCategory(item?.category)
+                        }
                         alt="thumb"
                       />
                     </Link>
@@ -85,7 +93,13 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
                       to={createSingleNewsSlug(item?.title)}
                       state={{ data: item }}
                     >
-                      <img src={item?.image ?? gentRandomImageByCategory(item?.category)} alt="thumb" />
+                      <img
+                        src={
+                          item?.image ??
+                          gentRandomImageByCategory(item?.category)
+                        }
+                        alt="thumb"
+                      />
                     </Link>
                   </div>
                 </div>
@@ -109,6 +123,15 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
               ) : null}
             </Fragment>
           ))}
+          <Link
+            to="#"
+            onClick={() =>
+              openInNewTab(`/categories/${dataTwo[0]?.category}`, true)
+            }
+            className="showmore mt30"
+          >
+            Show more
+          </Link>
         </div>
       </div>
     </div>

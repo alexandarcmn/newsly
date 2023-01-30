@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import dayjs from "dayjs";
-import { gentRandomImageByCategory } from "../../../Utils/helpers";
+import { createSingleNewsSlug, gentRandomImageByCategory, handleSingleNewsData } from "../../../Utils/helpers";
+import { Link } from "react-router-dom";
 
 export default function HeroArea({ data }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -46,7 +47,13 @@ export default function HeroArea({ data }) {
                             | {dayjs(item?.published_at).format("MMMM YYYY")}
                           </span>
                         </p>
-                        <h1>{item?.title}</h1>
+                        <Link
+                          to={createSingleNewsSlug(item?.title)}
+                          state={{ data: item }}
+                          onClick={() => handleSingleNewsData(item)}
+                        >
+                          <h1>{item?.title}</h1>
+                        </Link>
                       </div>
                     </div>
                   </div>

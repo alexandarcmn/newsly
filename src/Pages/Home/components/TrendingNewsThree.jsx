@@ -6,6 +6,7 @@ import {
   createSingleNewsSlug,
   gentRandomImageByCategory,
   handleSingleNewsData,
+  openInNewTab,
 } from "../../../Utils/helpers";
 //
 import FontAwesome from "../../../Components/FontAwesome";
@@ -30,7 +31,13 @@ export default function TrendingNewsThree({ data }) {
                   state={{ data: data[0] }}
                   onClick={() => handleSingleNewsData(data[0])}
                 >
-                  <img src={data[0]?.image || gentRandomImageByCategory(data[0]?.category)} alt="trend31" />
+                  <img
+                    src={
+                      data[0]?.image ||
+                      gentRandomImageByCategory(data[0]?.category)
+                    }
+                    alt="trend31"
+                  />
                 </Link>
               </div>
               <span className="tranding border_tranding">
@@ -89,7 +96,13 @@ export default function TrendingNewsThree({ data }) {
                         state={{ data: item }}
                         onClick={() => handleSingleNewsData(item)}
                       >
-                        <img src={item?.image || gentRandomImageByCategory(item?.category)} alt="thumb" />
+                        <img
+                          src={
+                            item?.image ||
+                            gentRandomImageByCategory(item?.category)
+                          }
+                          alt="thumb"
+                        />
                       </Link>
                     </div>
                   </div>
@@ -130,6 +143,15 @@ export default function TrendingNewsThree({ data }) {
                 ) : null}
               </Fragment>
             ))}
+            <Link
+              to="#"
+              onClick={() =>
+                openInNewTab(`/categories/${data[0]?.category}`, true)
+              }
+              className="showmore mt30"
+            >
+              Show more
+            </Link>
           </div>
         </div>
       </div>

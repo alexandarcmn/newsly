@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 //
 import FontAwesome from "../../FontAwesome";
+import { createSingleNewsSlug, handleSingleNewsData } from "../../../Utils/helpers";
 
 export default function Trending() {
   const {
@@ -37,7 +38,13 @@ export default function Trending() {
                       key={`head-trending-${idx}`}
                     >
                       <p>
-                        <Link to="/">{el?.title}</Link>
+                        <Link
+                          to={createSingleNewsSlug(el?.title)}
+                          state={{ data: el }}
+                          onClick={() => handleSingleNewsData(el)}
+                        >
+                          {el?.title}
+                        </Link>
                       </p>
                     </SwiperSlide>
                   ))}
