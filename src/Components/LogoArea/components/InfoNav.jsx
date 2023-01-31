@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 //
-import tempIcon from "../../../doc/img/icon/temp.png";
+import offer1 from "../../../doc/img/offers/off5.jpg";
 
 export default function InfoNav() {
   return (
@@ -29,7 +29,7 @@ export default function InfoNav() {
         <div className="banner1">
           <Link to="#">
             <img
-              src="https://preview.colorlib.com/theme/magnews2/images/banner-01.jpg"
+              src={offer1}
               alt="banner"
             />
           </Link>

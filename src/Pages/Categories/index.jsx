@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import InternationalNews from "./components/InternationalNews";
 import WidgetFinanceTwo from "../Home/components/WidgetFinanceTwo";
 import BannerSectionThree from "./components/BannerSectionThree";
+//
+import offer1 from '../../doc/img/offers/off1.jpg';
 
 export default function Categories() {
   const { category } = useParams();
@@ -46,7 +48,7 @@ export default function Categories() {
               <div className="banner2 mb30 border-radious5">
                 <Link to="/">
                   <img
-                    src="https://preview.colorlib.com/theme/magnews2/images/banner-02.jpg"
+                    src={offer1}
                     alt="banner4"
                   />
                 </Link>

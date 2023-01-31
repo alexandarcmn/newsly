@@ -7,6 +7,7 @@ import { searchModalHandler } from "../../Redux/slices/layoutSlice";
 import FooterNewsCategories from "./components/FooterNewsCategories";
 //
 import Logo from "../../doc/img/logo/logo1.png";
+import offer1 from "../../doc/img/offers/off2.jpg";
 
 export default function Footer() {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ export default function Footer() {
             <div className="banner_area mt30">
               <Link to="/" style={{ width: "100%" }}>
                 <img
-                  src="https://preview.colorlib.com/theme/magnews2/images/banner-01.jpg"
+                  src={offer1}
                   alt="banner42"
                   style={{ width: "100%" }}
                 />

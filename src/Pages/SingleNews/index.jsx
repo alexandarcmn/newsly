@@ -4,6 +4,8 @@ import dayjs from "dayjs";
 //
 import CategoryFour from "../Home/components/CategoryFour";
 import { gentRandomImageByCategory, openInNewTab } from "../../Utils/helpers";
+//
+import offer1 from '../../doc/img/offers/off3.jpg';
 
 const DEFF_AVATAR_IMG =
   "https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=826&t=st=1674595570~exp=1674596170~hmac=bd693938e7fff743537dfbf83e7292347863f08bca923731d5621adee605b6c6";
@@ -88,7 +90,7 @@ export default function SingleNews() {
               <div className="banner2 mb30 border-radious5">
                 <Link to="/">
                   <img
-                    src="https://preview.colorlib.com/theme/magnews2/images/banner-02.jpg"
+                    src={offer1}
                     alt="banner4"
                   />
                 </Link>

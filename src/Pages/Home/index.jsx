@@ -13,6 +13,9 @@ import GalleryCarousel from "./components/GalleryCarousel";
 import WidgetOpinionNews from "./components/WidgetOpinionNews";
 import CategoryFour from "./components/CategoryFour";
 import HeroArea from "./components/HeroArea";
+//
+import offer1 from '../../doc/img/offers/off3.jpg';
+import offer2 from '../../doc/img/offers/off6.jpg';
 
 export default function Home() {
   const {
@@ -54,7 +57,7 @@ export default function Home() {
                 <div className="banner2 mb30 border-radious5">
                   <Link to="/">
                     <img
-                      src="https://preview.colorlib.com/theme/magnews2/images/banner-02.jpg"
+                      src={offer1}
                       alt="banner4"
                     />
                   </Link>
@@ -77,7 +80,7 @@ export default function Home() {
                 <div className="banner_area mb30 mt30 xs-mt60">
                   <Link to="/">
                     <img
-                      src="https://preview.colorlib.com/theme/magnews2/images/banner-01.jpg"
+                      src={offer2}
                       alt="banner42"
                     />
                   </Link>
