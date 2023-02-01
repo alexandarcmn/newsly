@@ -64,15 +64,26 @@
     color: white;
     cursor: pointer;
     background: $gradient41;
-    display: inline-block;
+    // display: inline-block;
     padding: 22px 21px 21px;
     margin: -1px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    // border-radius: 10px 0 0 10px;
+    span{
+      font-style: italic;
+      text-decoration: underline rgba(255, 255, 255, 1);
+      margin: 0 0 0 10px;
+    }
     @media (max-width: 575px) {
       background: none;
+      justify-content: flex-end;
+      span{
+        margin: 0 20px 0 0;
+      }
     }
-    // align-items: center;
-    // justify-content: end;
-    // border-radius: 10px 0 0 10px;
   }
 
   .widget-title {

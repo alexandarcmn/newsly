@@ -14,8 +14,10 @@ import WidgetOpinionNews from "./components/WidgetOpinionNews";
 import CategoryFour from "./components/CategoryFour";
 import HeroArea from "./components/HeroArea";
 //
-import offer1 from '../../doc/img/offers/off3.jpg';
-import offer2 from '../../doc/img/offers/off6.jpg';
+import SearchWidget from "../../Components/SearchWidget";
+//
+import offer1 from "../../doc/img/offers/off3.jpg";
+import offer2 from "../../doc/img/offers/off6.jpg";
 
 export default function Home() {
   const {
@@ -50,16 +52,14 @@ export default function Home() {
                 />
               </div>
               <div className="col-md-6 col-xl-4 d-md-none d-xl-block">
+                <SearchWidget customClass="mb30"/>
                 <WidgetFinanceTwo
                   data={science?.data?.slice(5, 7)}
                   title="Science"
                 />
                 <div className="banner2 mb30 border-radious5">
                   <Link to="/">
-                    <img
-                      src={offer1}
-                      alt="banner4"
-                    />
+                    <img src={offer1} alt="banner4" />
                   </Link>
                 </div>
               </div>
@@ -79,10 +79,7 @@ export default function Home() {
                 />
                 <div className="banner_area mb30 mt30 xs-mt60">
                   <Link to="/">
-                    <img
-                      src={offer2}
-                      alt="banner42"
-                    />
+                    <img src={offer2} alt="banner42" />
                   </Link>
                 </div>
                 <ScienceNews data={health?.data?.slice(0, 5)} />
@@ -102,6 +99,7 @@ export default function Home() {
                   </div> */}
                   <div className="col-md-6 col-xl-12">
                     <CategoryFour />
+                    <SearchWidget customClass="mb30 mt30"/>
                     <WidgetFinanceTwo
                       data={business?.data?.slice(23, 26)}
                       title="Business"

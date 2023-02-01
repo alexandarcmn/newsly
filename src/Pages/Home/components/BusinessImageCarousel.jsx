@@ -124,10 +124,10 @@ export default function BusinessImageCarousel({ dataOne, dataTwo }) {
             </Fragment>
           ))}
           <Link
-            to="#"
-            onClick={() =>
-              openInNewTab(`/categories/${dataTwo[0]?.category}`, true)
-            }
+            to={`/categories/${dataTwo[0]?.category}`}
+            // onClick={() =>
+            //   openInNewTab(`/categories/${dataTwo[0]?.category}`, false)
+            // }
             className="showmore mt30"
           >
             Show more

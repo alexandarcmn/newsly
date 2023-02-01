@@ -8,6 +8,7 @@ import FooterNewsCategories from "./components/FooterNewsCategories";
 //
 import Logo from "../../doc/img/logo/logo1.png";
 import offer1 from "../../doc/img/offers/off2.jpg";
+import SearchWidget from "../SearchWidget";
 
 export default function Footer() {
   const dispatch = useDispatch();
@@ -37,7 +38,8 @@ export default function Footer() {
                 News! <br /> Be among the first to hear and read about the most
                 popular worldwide news.
               </p>
-              <p>
+              <SearchWidget customClass="mt10 w-75"/>
+              {/* <p>
                 Explore{" "}
                 <Link
                   to="#"
@@ -48,7 +50,7 @@ export default function Footer() {
                   MORE{" "}
                 </Link>{" "}
                 news
-              </p>
+              </p> */}
             </div>
             {/* <div className="single_footer_nav mb30">
               <FooterNewsCategories />
@@ -63,7 +65,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <div className="banner_area mt30">
               <Link to="/" style={{ width: "100%" }}>
                 <img
@@ -73,7 +75,7 @@ export default function Footer() {
                 />
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="copyright">

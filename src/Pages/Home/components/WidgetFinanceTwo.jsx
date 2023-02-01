@@ -53,10 +53,10 @@ export default function WidgetFinanceTwo({ title, data }) {
         </div>
       ))}
       <Link
-        to="#"
-        onClick={() =>
-          openInNewTab(`/categories/${data[0]?.category}`, true)
-        }
+        to={`/categories/${data[0]?.category}`}
+        // onClick={() =>
+        //   openInNewTab(`/categories/${data[0]?.category}`, true)
+        // }
         className="showmore"
       >
         Show more

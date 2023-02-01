@@ -23,8 +23,9 @@ export default function Header({ className }) {
             <div className="main-nav clearfix is-ts-sticky">
               <div className="row justify-content-between align-items-center">
                 <Navigation />
-                <div className="col-lg-1 text-right h-100 d-flex align-items-center justify-content-end p-0">
+                <div className="col-lg-3 text-right h-100 d-flex align-items-center justify-content-end p-0">
                   <div className="search4" onClick={() => handleSearchOpen()}>
+                    <span>Search Web</span>
                     <FontAwesome name="search" />
                   </div>
                 </div>

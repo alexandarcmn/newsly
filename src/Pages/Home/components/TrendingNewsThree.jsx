@@ -144,10 +144,10 @@ export default function TrendingNewsThree({ data }) {
               </Fragment>
             ))}
             <Link
-              to="#"
-              onClick={() =>
-                openInNewTab(`/categories/${data[0]?.category}`, true)
-              }
+              to={`/categories/${data[0]?.category}`}
+              // onClick={() =>
+              //   openInNewTab(`/categories/${data[0]?.category}`, true)
+              // }
               className="showmore mt30"
             >
               Show more

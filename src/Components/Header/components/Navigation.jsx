@@ -52,7 +52,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="navbar navbar-expand-lg col-lg-11">
+    <nav className="navbar navbar-expand-lg col-lg-9">
       <div className="site-nav-inner">
         <button className="navbar-toggler" onClick={() => setSideShow(true)}>
           <AiOutlineMenu />

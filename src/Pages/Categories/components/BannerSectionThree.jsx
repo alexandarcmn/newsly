@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+//
+import offer1 from '../../../doc/img/offers/off2.jpg';
 
 export default function BannerSectionThree() {
   return (
@@ -8,7 +10,7 @@ export default function BannerSectionThree() {
           <div className="col-lg-8 m-auto">
             <div className="banner1 border-radious5">
               <Link to="/">
-                <img src="https://preview.colorlib.com/theme/magnews2/images/banner-01.jpg" alt="banner" />
+                <img src={offer1} alt="banner" />
               </Link>
             </div>
           </div>

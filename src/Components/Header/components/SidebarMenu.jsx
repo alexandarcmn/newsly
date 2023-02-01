@@ -6,6 +6,7 @@ import { GrClose } from "react-icons/gr";
 import FontAwesome from "../../FontAwesome";
 //
 import "./sidebarMenu.scss";
+import SearchWidget from "../../SearchWidget";
 
 const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
   const [sMenu, setSMenu] = useState(null);
@@ -93,6 +94,7 @@ const SidebarMenu = ({ menus, sideShow, setSideShow, className }) => {
           </li>
         ))}
       </ul>
+      <SearchWidget customClass="mt30 px20"/>
     </div>
   );
 };

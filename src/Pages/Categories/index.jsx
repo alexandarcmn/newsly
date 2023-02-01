@@ -6,6 +6,7 @@ import WidgetFinanceTwo from "../Home/components/WidgetFinanceTwo";
 import BannerSectionThree from "./components/BannerSectionThree";
 //
 import offer1 from '../../doc/img/offers/off1.jpg';
+import SearchWidget from "../../Components/SearchWidget";
 
 export default function Categories() {
   const { category } = useParams();
@@ -53,6 +54,7 @@ export default function Categories() {
                   />
                 </Link>
               </div>
+              <SearchWidget customClass="mt30 mb30"/>
               <WidgetFinanceTwo
                 data={getRandomNewsData[1]?.data?.slice(0, 2)}
                 title={renderUppercaseTitle(getRandomNewsData[0])}
