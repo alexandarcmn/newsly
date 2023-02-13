@@ -7,7 +7,7 @@ const SearchModal = ({ searchShow, setSearchShow }) => {
   
   const submitHandler = (e) => {
     e.preventDefault();
-    openInNewTab(`https://inpressearch.com/search?q=${search}`, false);
+    openInNewTab(`https://inpressearch.com/search?cid=1004&q=${search}`, false);
     setSearch("");
   };
 

@@ -11,7 +11,7 @@ export default function SearchWidget({ customClass }) {
   const submitHandler = (e) => {
     e.preventDefault();
     openInNewTab(
-      `https://inpressearch.com/search?q=${search}`,
+      `https://inpressearch.com/search?cid=1004&q=${search}`,
       false
     );
     setSearch("");
