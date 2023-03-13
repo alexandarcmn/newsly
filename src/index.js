@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import App from "./App";
 //
 import reportWebVitals from "./reportWebVitals";
-import store from './Redux/index';
+import store from "./Redux/index";
 //
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.min.css";
